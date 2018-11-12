@@ -7,3 +7,8 @@ Information displayed:
 * Baro Ki'Teer (Time and Location)
 
 Settings button will allow you to move the window around by entering new x and y coordinates respective to the top left of your screen.
+
+Todo:
+* Make settings permanent. (currently resets at restart)
+* Add colour options.
+* Add hovering capabilities to reveal more information.
