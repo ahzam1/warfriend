@@ -12,3 +12,5 @@ Todo:
 * Make settings permanent. (currently resets at restart)
 * Add colour options.
 * Add hovering capabilities to reveal more information.
+* Add invasions (in an informative way)
+* Add Orb Vallis Cycles
