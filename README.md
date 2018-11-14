@@ -14,3 +14,4 @@ Todo:
 * Add hovering capabilities to reveal more information.
 * Add invasions (in an informative way)
 * Add Orb Vallis Cycles
+* Add better window movement ability, current implentation is too slow.
