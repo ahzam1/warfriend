@@ -11,7 +11,6 @@ Settings button will allow you to move the window around by entering new x and y
 Todo:
 * Make settings permanent. (currently resets at restart)
 * Add colour options.
-* Add hovering capabilities to reveal more information.
 * Add invasions (in an informative way)
 * Add Orb Vallis Cycles
-* Add better window movement ability, current implentation is too slow.
+
