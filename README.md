@@ -6,7 +6,7 @@ Information displayed:
 * Alerts (rewards available and time remaining)
 * Baro Ki'Teer (Time and Location)
 
-Settings button will allow you to move the window around by entering new x and y coordinates respective to the top left of your screen.
+Drag the window around by clicking and holding the rightside grey bar (where the buttons are). Toggling the Lock will allow you to turn dragging on and off if you want it to hold its position.
 
 Todo: (priority ordered)
 * Add invasions (in an informative way)
