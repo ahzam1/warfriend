@@ -8,6 +8,8 @@ Information displayed:
 
 Drag the window around by clicking and holding the rightside grey bar (where the buttons are). Toggling the Lock will allow you to turn dragging on and off if you want it to hold its position.
 
+![Screenshot](https://raw.githubusercontent.com/ahzam1/warfriend/master/img/screenshot.png)
+
 Todo: (priority ordered)
 * Add invasions (in an informative way)
 * Add Orb Vallis Cycles
