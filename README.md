@@ -7,7 +7,7 @@ A small companion app that informs you about the game state of Warframe, updates
 * Baro Ki'Teer (Time and Location)
 
 ### Installation
-Clone/Download the repository (or get the ![latest version here](https://github.com/ahzam1/warfriend/releases/tag/v0.2)). Run WarFriend.exe, and you're good to go. If you wish to build the code yourself, you can do so as the code is availble within the src directory.
+Clone/Download the repository (or get the ![latest version here](https://github.com/ahzam1/warfriend/releases/tag/v0.2)). Run WarFriend.exe, and you're good to go. If you wish to build the code yourself, you can do so as the code is available within the src directory.
 
 ### Moving the window
 Drag the window around by clicking and holding the rightside grey bar (where the buttons are). Toggling the Lock will allow you to turn dragging on and off if you want it to hold its position.
