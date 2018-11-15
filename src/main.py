@@ -2,7 +2,7 @@ import requests
 import json
 import time
 import tkinter as tk
-import Pmw
+
 
 from tkinter import *
 ########### API Functions - data fetching from api.warframestat.us
@@ -74,9 +74,11 @@ class App(tk.Tk):
         screen_height = self.root.winfo_screenheight()
         self._offsetx = 0
         self._offsety = 0
-        self.x= screen_width/2
-        self.y= screen_height/2
-        self.root.geometry('+%d+%d' % (self.x, self.y))
+
+        pos = self.getpos()
+        self.x= int(pos[0])
+        self.y= int(pos[1])
+        self.root.geometry("+%d+%d" % (self.x, self.y))
         self.root.propagate(1)
         self.root.overrideredirect(1) #set window borderless
         self.root.configure(background="#2b2d31")
@@ -91,11 +93,11 @@ class App(tk.Tk):
         self.uphoto= tk.PhotoImage(file="img/unlock.png")
         exitbutton = Button(topframe, image=ephoto, pady=5, fg="black", bg= "#2b2d31", command=self.destroy_window, relief=FLAT)
         exitbutton.pack(side=TOP)
-        Pmw.Balloon(self.root).bind(exitbutton, "Exit")
+
 
         self.lockbutton = Button(topframe, image=self.uphoto, pady=5, fg="black", bg= "#2b2d31", command=self.lock, relief=FLAT)
         self.lockbutton.pack(side=TOP)
-        Pmw.Balloon(self.root).bind(exitbutton, "Lock/Unlock")
+
         topframe.bind('<ButtonPress-1>', self.clickwin)
         topframe.bind('<B1-Motion>', self.dragwin)
         tframe=Frame(self.root, bg="#2b2d31")
@@ -180,8 +182,6 @@ class App(tk.Tk):
             tright = "Time: " + alertdata[i][1]
             timer=tk.Label(self.aframe, text=tright, bg="#36393e", fg="white")
             timer.grid(row=i, column=1, sticky="E", padx=5)
-            Pmw.Balloon(self.root).bind(reward, alertdata[i][3] + " | " +alertdata[i][4] + " | Level: " + str(alertdata[i][5]) +"-"+ str(alertdata[i][6]))
-            Pmw.Balloon(self.root).bind(timer, alertdata[i][3] + " | " +alertdata[i][4]+ " | Level: " + str(alertdata[i][5]) +"-"+ str(alertdata[i][6]))
 
         if not barodata[0]: ##baro not here :(
             temp = "Arriving in " + barodata[1] + " at " + barodata[2]
@@ -192,22 +192,31 @@ class App(tk.Tk):
 
         self.root.after(60000, self.update_clock) #update every minute
     def destroy_window(self):
+        #need to save settings here
+        self.savepos(self.root.winfo_x(),self.root.winfo_y())
         self.root.destroy()
-    def lock(self):
+    def lock(self): #function for switching the lock, and image
         self.locked = not self.locked
         if self.locked:
             self.lockbutton.configure(image=self.lphoto)
         else:
             self.lockbutton.configure(image=self.uphoto)
-    def updatepos(self, x, y, win):
-        if x.get().isdigit() and y.get().isdigit():
-            self.x=int(x.get())
-            self.y=int(y.get())
-            self.root.geometry('+%d+%d' % (self.x, self.y))
-            win.destroy()
-            self.update_clock()
-        else:
-            tk.Label(win, text="Invalid entry", fg="red").pack(side=LEFT)
+
+    def savepos(self,x,y): #function for saving user's window position to settings file upon exit
+        f= open("settings.ini","w+")
+        f.write("+%d+%d" % (x,y))
+        f.close()
+
+    def getpos(self): #function for loading users saved window pos
+        try:
+            f= open("settings.ini","r")
+            content = f.read()
+            f.close()
+            retarray = content.split('+')
+            retarray.pop(0)
+            return retarray
+        except: #no settings exist, return 100 100 as placeholder
+            return [100,100]
 
     def dragwin(self,event):
         x = self.root.winfo_pointerx() - self._offsetx

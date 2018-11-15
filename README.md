@@ -8,9 +8,8 @@ Information displayed:
 
 Settings button will allow you to move the window around by entering new x and y coordinates respective to the top left of your screen.
 
-Todo:
-* Make settings permanent. (currently resets at restart)
-* Add colour options.
+Todo: (priority ordered)
 * Add invasions (in an informative way)
 * Add Orb Vallis Cycles
-
+* Add hover information
+* Add colour options.
